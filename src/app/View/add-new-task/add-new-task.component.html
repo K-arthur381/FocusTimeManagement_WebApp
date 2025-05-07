@@ -1,0 +1,40 @@
+<div class="container p-4">
+  <div class="modal-header d-flex justify-content-between">
+    <h6 class="modal-title">{{ index !== -1 ? '✏️ Edit Task' : 'Add New Task' }}</h6>
+    <!-- Close Button (Bootstrap) -->
+    <button type="button" class="btn btn-close" (click)="closeDialog()" style="font-size: x-large;"></button>
+  </div>
+
+  <div class="modal-body">
+    <hr>
+    <!-- Template-driven Form Binding -->
+    <form #taskForm="ngForm" (ngSubmit)="saveTask(taskForm)">
+      <div class="mb-3">
+        <!-- Task Name Input -->
+        <textarea class="form-control"  [(ngModel)]="taskName" name="TaskName" placeholder="လုပ်မည့် အလုပ်အမည်" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="time" class="form-label">Est-time Interval</label>
+        <div class="input-group">
+          <!-- Time Interval  Input -->
+          <input type="number" class="form-control" [(ngModel)]="intervalCount" name="IntervalCount" placeholder="5" min="1" max="120" required>
+          <span class="input-group-text">ကြိမ်</span>
+        </div>
+      </div>        
+      <div class="mb-3">
+        <!-- Notes Input -->
+        <textarea class="form-control" [(ngModel)]="note" name="Note" placeholder="note ရေးရန်"></textarea>
+      </div>
+      <div *ngIf="taskForm.invalid && taskForm.touched" class="text-danger">
+        Please fill out all fields correctly.
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <!-- Cancel Button -->
+    <button class="btn btn-outline-secondary me-2" (click)="closeDialog()">Cancel</button>
+    <!-- Save Button (Triggers saveTask method) -->
+    <button class="btn btn-primary" type="button" (click)="saveTask(taskForm)" [disabled]="taskForm.invalid">Save</button>
+  </div>
+</div>

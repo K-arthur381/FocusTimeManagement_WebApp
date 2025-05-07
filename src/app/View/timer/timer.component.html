@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-center mt-3">
+        <h1 class="card-title">{{ minutes }} : {{ seconds | number: '2.0-0' }}</h1>
+      </div>
+  
+      <div class="d-flex justify-content-center mt-3">
+        <!-- Show Start button only if timer is not running and not completed -->
+        <button *ngIf="!isRunning && !isCompleted" class="btn btn-primary px-5" (click)="startTimer()"><i class="bi bi-flag-fill"></i>&nbsp;Start</button>
+  
+        <!-- Show Pause button when timer is running -->
+        <button *ngIf="isRunning" class="btn btn-primary text-white px-5" (click)="pauseTimer()"><i class="bi bi-pause-circle-fill"></i>&nbsp;Pause</button>
+  
+        <!-- Show Break Time or Next Task button when time is completed -->
+        <button *ngIf="isCompleted" class="btn btn-info text-white px-2 me-3" (click)="breakTimer()"> <i class="bi bi-alarm"></i>&nbsp;TakeRest</button>
+        <button *ngIf="isCompleted" class="btn btn-info text-white px-2" (click)="resetTimer()"><i class="bi bi-list-task"></i>&nbsp;NextTask</button>
+    </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,57 @@
+<div class="container p-4">
+  <div class="modal-header">
+    <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+  </div>
+  <hr>
+  <div class="modal-body">
+    <form  #SettingForm="ngForm" (ngSubmit)="saveSetting(SettingForm)">
+      <!-- Timer Selection -->
+      <div class="mb-3">
+        <p class="text-primary"> <i class="bi bi-alarm"></i>&nbsp;Time (Minutes)</p>
+        <div class="row g-3">
+          <div class="col-6">
+            <label for="workTimer" class="form-label">Timer</label>
+            <input type="number" class="form-control" [(ngModel)]="timer" name="timer" placeholder="timer duration" min="1" max="120">
+          </div>
+          <div class="col-6">
+            <label for="breakTimer" class="form-label">နားချိန်</label>
+            <input type="number" class="form-control"  [(ngModel)]="breaktime"  name="breaktime" placeholder="break time" min="1" max="120">
+          </div>
+        </div>
+      </div>
+
+      <!-- Sound Toggle -->
+      <div class="mb-3">
+        <p class="form-label text-primary">
+          <i class="bi bi-soundwave"></i>&nbsp;Sound
+        </p>
+        <div class="row g-3">
+          <div class="col-4">
+            <label class="form-label">သီချင်းသံစဉ်</label>
+          </div>
+          <div class="col-8">
+            <select class="form-control" [(ngModel)]="selectedSound" name="selectedSound" (change)="playSelectedSound()">
+              <option value="digital-clock">Digital clock</option>
+              <option value="rooster-crowing">Morning Rooster</option>
+              <option value="slot-win">Slot Machine Winning</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications Toggle -->
+      <!-- <div class="mb-3">
+        <label class="form-label">Notifications</label>
+        <div class="form-check form-switch d-flex align-items-center">
+          <input class="form-check-input me-2" type="checkbox" role="switch" checked>
+          <span>Enable Notifications</span>
+        </div>
+      </div> -->
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-outline-secondary me-3" (click)="closeDialog()">Cancel</button>
+    <button class="btn btn-outline-primary"  (click)="saveSetting(SettingForm)" type="button">Save</button>
+  </div>
+</div>

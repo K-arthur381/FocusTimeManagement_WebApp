@@ -1,0 +1,63 @@
+<div class="card" >
+    <div class="card-body">
+
+      <div class="row d-flex justify-content-center mt-3">    
+        <div class="col text-start"> <button class="btn btn-outline-primary" (click)="openTaskDialog()"><i class="bi bi-plus-square-fill"></i>&nbsp;NewTask</button></div>
+
+        <div class="col text-end position-relative">
+          <i class=" bi bi-sliders" style="font-size: x-large; color: dodgerblue;" (click)="showOptions = !showOptions"></i>
+        </div>
+        <div class="position-relative">
+          <ul *ngIf="showOptions"
+          class="list-group position-absolute end-0  shadow"
+          style="z-index: 10;">
+        <li class="list-group-item start-0 list-group-item-action" (click)="deleteAllTasks()">
+          <i class="bi bi-trash ms-3" style="color: rgb(216, 114, 54); cursor: pointer;"></i>
+          Delete All Tasks</li>
+        <li class="list-group-item start-0 list-group-item-action" (click)="deleteAllFinishTasks()">
+          <i class="bi bi-trash ms-3" style="color: rgb(207, 85, 37); cursor: pointer;"></i>
+          Delete All Finish Tasks</li>
+      </ul>
+        </div>
+         
+       
+        
+      </div>
+      <hr>
+
+       <div class="card mt-2"  *ngFor="let info of ProgressData,index as i">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <p style="font-weight: bold;">{{info.taskName}}</p>
+            <div class="d-flex justify-content-center" style="font-size: larger;">
+              <p>{{info.currentintervalCount}}/{{info.intervalCount}}</p>           
+            
+        <i class="bi bi-pencil ms-4" style="color: orange; cursor: pointer;" (click)="editTask(i)"></i>
+        <i class="bi bi-trash ms-2" style="color: red; cursor: pointer;" (click)="deleteTask(i)"></i>
+            </div>         
+          </div>
+          <div class="bg-warning text-white" *ngIf="info.note">
+            <p class="p-2">{{info.note}}</p>
+          </div>        
+        </div>
+       </div>
+       
+       <div class="card mt-2"  *ngFor="let info of FinishData,index as i" >
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <del style="font-weight: bold;">{{info.taskName}}</del>
+            <div class="d-flex justify-content-center" style="font-size: larger;">
+              <p>{{info.currentintervalCount}}/{{info.intervalCount}}</p>           
+               
+        <i class="bi bi-check2-square ms-4" style="color: rgb(98, 226, 108); cursor: pointer;"></i>
+       
+            </div>         
+          </div>
+          <div class="bg-warning text-white" *ngIf="info.note">
+            <p class="p-2"><del>{{info.note}}</del></p>
+          </div>        
+        </div>
+       </div>
+
+    </div>
+</div>
