@@ -8,14 +8,15 @@ import { AddNewTaskComponent } from './View/add-new-task/add-new-task.component'
 import { SettingComponent } from './View/setting/setting.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent }, 
+  { path: 'home', component: HomeComponent },
   { path: 'timer', component: TimerComponent },
   { path: 'breaktimer', component: BreakTimerComponent },
   { path: 'tasklist', component: TaskListComponent },
   { path: 'addnewtask', component: AddNewTaskComponent },
   { path: 'setting', component: SettingComponent },
-  { path: '', redirectTo: '/timer', pathMatch: 'full' }, // Default route
-]
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' } // wildcard route to handle 404
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
