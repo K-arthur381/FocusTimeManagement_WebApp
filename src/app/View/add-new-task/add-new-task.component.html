@@ -11,10 +11,10 @@
     <form #taskForm="ngForm" (ngSubmit)="saveTask(taskForm)">
       <div class="mb-3">
         <!-- Task Name Input -->
-        <textarea class="form-control"  [(ngModel)]="taskName" name="TaskName" placeholder="လုပ်မည့် အလုပ်အမည်" required></textarea>
+        <textarea class="form-control"  [(ngModel)]="taskName" name="TaskName" placeholder="လုပ်မည့် လုပ်ဆောင်မူအမည်" required></textarea>
       </div>
       <div class="mb-3">
-        <label for="time" class="form-label">Est-time Interval</label>
+        <label for="time" class="form-label"><i class="bi bi-clock"></i> ခန့်မှန်းအချိန်ကာလ</label>
         <div class="input-group">
           <!-- Time Interval  Input -->
           <input type="number" class="form-control" [(ngModel)]="intervalCount" name="IntervalCount" placeholder="5" min="1" max="120" required>

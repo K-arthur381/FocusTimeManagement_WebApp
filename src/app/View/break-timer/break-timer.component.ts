@@ -18,7 +18,7 @@ export class BreakTimerComponent {
 selectedSound:any;
 
 constructor(private route: Router,private taskService:TaskService){
-  this.startTimer();
+  //this.startTimer();
 }
 
 ngOnInit() {
@@ -49,6 +49,7 @@ loadBreaktimeData(){
       const soundUrl = soundMap[this.selectedSound];
         this.audio.pause();        // Stop previous sound
         this.audio.src = soundUrl;
+        this.startTimer();
    }
 }
 
@@ -108,6 +109,7 @@ loadBreaktimeData(){
   }
 
   Skip(){
+    this.stopTimer();
     this.audio.pause();
     this.route.navigate(['timer']);
   }

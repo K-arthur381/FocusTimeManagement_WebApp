@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'tasklist', component: TaskListComponent },
   { path: 'addnewtask', component: AddNewTaskComponent },
   { path: 'setting', component: SettingComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' } // wildcard route to handle 404
+  { path: '', redirectTo: '/timer', pathMatch: 'full' },
+  { path: '**', redirectTo: '/timer' } // wildcard route to handle 404
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
