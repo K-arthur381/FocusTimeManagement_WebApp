@@ -28,10 +28,13 @@
         <ul *ngIf="showOptions"
             class="list-group position-absolute end-0 mt-2 shadow"
             style="top: 100%; z-index: 1050; min-width: 150px;">
-          <li class="list-group-item list-group-item-action" style="cursor: pointer;">
-            <i class="bi bi-phone me-2 text-primary"></i>Download &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MobileApp
+            <a href="assets/Vwqj6jv2rwzJrBrMveRS.apk" download style="text-decoration: none;">
+          <li class="list-group-item list-group-item-action download-item" style="cursor: pointer;">
+            <i class="bi bi-phone me-2 text-primary"></i>
+            <span class="download-text">Download &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MobileApp</span>
           </li>
-          <li class="list-group-item list-group-item-action" style="cursor: pointer;" (click)="OpenUserGuideDialog(); showOptions = false">
+          </a>
+          <li class="list-group-item list-group-item-action  download-item" style="cursor: pointer;" (click)="OpenUserGuideDialog(); showOptions = false">
             <i class="bi bi-book me-2 text-success"></i> User Guide
           </li>
         </ul>

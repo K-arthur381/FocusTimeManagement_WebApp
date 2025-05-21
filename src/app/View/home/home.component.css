@@ -1,0 +1,27 @@
+ .download-item {
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+  }
+
+  .download-item:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .download-item i {
+    font-size: 1.2rem;
+  }
+
+  .download-text {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  .download-item:hover i,
+  .download-item:hover .download-text {
+    color: white !important;
+  }
